@@ -7,12 +7,12 @@ export const HISTORICAL_SOURCE_URL =
 
 export const navigation = [
   { label: "Overview", icon: "overview", available: true },
-  { label: "Timeline", icon: "timeline", available: false },
-  { label: "Evidence Matrix", icon: "evidence", available: false },
+  { label: "Timeline", icon: "timeline", available: true },
+  { label: "Evidence Matrix", icon: "evidence", available: true },
   { label: "Hidden States", icon: "hidden", available: true },
   { label: "Bottlenecks", icon: "bottleneck", available: true },
   { label: "Capacity Windows", icon: "capacity", available: true },
-  { label: "Reports", icon: "reports", available: false },
+  { label: "Reports", icon: "reports", available: true },
 ] as const;
 
 export interface SourceReference {
@@ -101,7 +101,7 @@ export const evidence: readonly EvidenceItem[] = [
   },
 ];
 
-// Static category fixtures. Only the three analytical concept views are implemented.
+// Static category fixtures shared across all seven presentation views.
 export const timeline = [
   { id: "DEMO-T01", date: "2026-06-03", label: "Follow-up requested", evidenceId: "DEMO-E01" },
   { id: "DEMO-T02", date: "2026-06-06", label: "Activity noted", evidenceId: "DEMO-E02" },
@@ -124,8 +124,8 @@ export const capacityWindows = [
 ] as const;
 
 export const reports = [
-  { id: "DEMO-R01", title: "Timeline summary", evidenceIds: ["DEMO-E01", "DEMO-E02", "DEMO-E03", "DEMO-E04"], status: "Static category fixture; report view not built" },
-  { id: "DEMO-R02", title: "Evidence summary", evidenceIds: ["DEMO-E01", "DEMO-E02", "DEMO-E03", "DEMO-E04"], status: "Static category fixture; report view not built" },
+  { id: "DEMO-R01", title: "Timeline summary", evidenceIds: ["DEMO-E01", "DEMO-E02", "DEMO-E03", "DEMO-E04"], status: "Static draft preview; human review required" },
+  { id: "DEMO-R02", title: "Evidence summary", evidenceIds: ["DEMO-E01", "DEMO-E02", "DEMO-E03", "DEMO-E04"], status: "Static draft preview; human review required" },
 ] as const;
 
 export function evidenceById(id: string): EvidenceItem {

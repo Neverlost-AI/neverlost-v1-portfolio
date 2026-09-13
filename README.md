@@ -4,13 +4,17 @@ A new, standalone Next.js + TypeScript interface built in September 2026. **This
 
 > Historical June 2026 prototype · Synthetic demonstration data · Not a clinical decision system · Human review required.
 
-## Milestone 02: analytical concept views
+## Milestone 03: Timeline, Evidence Matrix, and Reports
 
 Milestone 01's branded Overview is preserved in local commit `54d8fab2e07527ed6352508a55a9d099aadfc830`. It provides a synthetic sample summary, a small timeline preview, candidate review questions, an evidence preview with filters, and a native accessible source-detail dialog.
 
 Milestone 02 adds only `/hidden-states`, `/bottlenecks`, and `/capacity-windows`. Each illustrates existing typed fixtures through recorded observations, candidate context, and explicit limitations, with complete source details available through the shared dialog. The reading order is not an execution pipeline or a causal claim. Missing ownership remains "Not recorded"; retained gains remain "Unknown". Fixture questions are illustrative, not assigned or approved actions.
 
-Timeline, Evidence Matrix, and Reports remain visibly planned and disabled, without implemented routes. There are no accept/reject/approval workflows, proposal governance, analysis execution, or saved decisions.
+Milestone 02 is preserved in local commit `b7dee500c27bea2bf0b827ef335bea485444320d`.
+
+Milestone 03 adds only `/timeline`, `/evidence-matrix`, and `/reports`. Timeline orders the four existing events and separates source excerpts from interpretation. Evidence Matrix presents the V1 record-fact / functional-consequence / system-relevance / next-opportunity chain with manually authored synthetic annotations, domain/type filters, and explicit missing fields. Reports offers expandable timeline, evidence, and Healthcare Reality Map draft previews linked to those same fixtures. All seven navigation links are available; the Overview's existing sections, filters, and dialogs remain intact.
+
+There are no accept/reject/approval workflows, proposal governance, analysis execution, saved decisions, V1.1 workflows, or external submission. Report previews are not verified clinical, disability, legal, or benefits determinations. See [historical surface mapping and representation limits](docs/historical-surface-mapping.md).
 
 Static, hand-authored TypeScript fixtures represent Overview, Timeline, Evidence Matrix, Bottlenecks, Hidden States, Capacity Windows, and Reports. Source document, page, chunk ID, excerpt, date, category, and interpretation are preserved in the fixture/detail interface. Other fixture records reference evidence IDs rather than dropping source linkage. A source-linked badge does not mean verified evidence.
 
@@ -35,7 +39,7 @@ npm exec playwright install chromium
 npm run test:e2e
 ```
 
-The browser tests launch the production build on port 3100. They cover the Overview and all three concept views on desktop/mobile: layout, navigation, disabled planned views, filters, complete provenance for every candidate, dialog keyboard/focus/Escape behavior, no runtime external requests, category references, and automated accessibility checks. Automated checks are not a complete accessibility certification.
+The browser tests launch the production build on port 3100. They cover all seven surfaces on desktop/mobile: layout, navigation, chronological ordering, domain/type filters and empty selections, report previews, complete provenance, dialog keyboard/focus/Escape behavior, no runtime external requests, category references, and automated accessibility checks. Automated checks are not a complete accessibility certification.
 
 Lint uses ESLint 10 with the official `@eslint/compat` adapter because Next's bundled React plugin still uses removed context methods. No lint rules are disabled. See [ESLint's migration guidance](https://eslint.org/docs/latest/use/migrate-to-10.0.0).
 
@@ -56,9 +60,11 @@ Configuration follows the official [Next.js installation documentation](https://
 ## Structure
 
 ```text
-src/app/                 Overview and three concept routes, styles and local icon
+src/app/                 Seven presentation routes, styles and local icon
 src/components/          New presentation components only
 src/lib/demo-data.ts     Typed synthetic fixture data and source references
+src/lib/output-data.ts   Manual synthetic matrix annotations and V1 domain names
+docs/                   Historical surface mapping and limits
 tests/                   Browser, accessibility and fixture-integrity tests
 ```
 

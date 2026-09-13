@@ -39,10 +39,10 @@ for (const view of views) {
     }
     if (testInfo.project.name === "mobile") await page.locator(".mobile-navigation > summary").click();
     const nav = page.getByRole("navigation", { name: "Demo views", exact: true }).filter({ visible: true });
-    await expect(nav.getByRole("link")).toHaveCount(4);
+    await expect(nav.getByRole("link")).toHaveCount(7);
     await expect(nav.locator('[aria-current="page"]')).toHaveText(view.title);
     for (const label of ["Timeline", "Evidence Matrix", "Reports"]) {
-      await expect(nav.getByRole("button", { name: `${label} Later`, exact: true })).toBeDisabled();
+      await expect(nav.getByRole("link", { name: label, exact: true })).toBeVisible();
     }
     if (testInfo.project.name === "mobile") await page.locator(".mobile-navigation > summary").click();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
