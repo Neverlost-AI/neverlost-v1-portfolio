@@ -9,9 +9,9 @@ export const navigation = [
   { label: "Overview", icon: "overview", available: true },
   { label: "Timeline", icon: "timeline", available: false },
   { label: "Evidence Matrix", icon: "evidence", available: false },
-  { label: "Bottlenecks", icon: "bottleneck", available: false },
-  { label: "Hidden States", icon: "hidden", available: false },
-  { label: "Capacity Windows", icon: "capacity", available: false },
+  { label: "Hidden States", icon: "hidden", available: true },
+  { label: "Bottlenecks", icon: "bottleneck", available: true },
+  { label: "Capacity Windows", icon: "capacity", available: true },
   { label: "Reports", icon: "reports", available: false },
 ] as const;
 
@@ -101,7 +101,7 @@ export const evidence: readonly EvidenceItem[] = [
   },
 ];
 
-// Category fixtures only. Their dedicated views are intentionally not implemented.
+// Static category fixtures. Only the three analytical concept views are implemented.
 export const timeline = [
   { id: "DEMO-T01", date: "2026-06-03", label: "Follow-up requested", evidenceId: "DEMO-E01" },
   { id: "DEMO-T02", date: "2026-06-06", label: "Activity noted", evidenceId: "DEMO-E02" },

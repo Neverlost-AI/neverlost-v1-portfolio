@@ -1,10 +1,12 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Link from "next/link";
+import { ConceptView, conceptCopy, type ConceptName } from "@/components/concept-view";
 import { Icon, type IconName } from "@/components/icon";
 import {
   bottlenecks, capacityWindows, DISCLAIMER, evidence, evidenceById,
-  formatDemoDate, hiddenStates, HISTORICAL_SOURCE_URL, navigation, reports, timeline,
+  formatDemoDate, HISTORICAL_SOURCE_URL, navigation, timeline,
   type EvidenceItem,
 } from "@/lib/demo-data";
 
@@ -14,15 +16,15 @@ function Wordmark() {
   return <div className="wordmark"><svg aria-hidden="true" width="30" height="30" viewBox="0 0 32 32" fill="none"><path d="M6 25V7l20 18V7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /><circle cx="26" cy="7" r="3" fill="currentColor" /></svg><span>neverlost<span className="wordmark-dot">.</span></span></div>;
 }
 
-function Navigation() {
+function Navigation({ view }: { view: "Overview" | ConceptName }) {
   return <nav aria-label="Demo views">
     {navigation.map((item) => item.available
-      ? <a key={item.label} className="nav-item active" href="#overview" aria-current="page"><Icon name={item.icon} /><span>{item.label}</span><span className="active-mark" /></a>
+      ? <Link key={item.label} className={`nav-item${view === item.label ? " active" : ""}`} href={item.label === "Overview" ? "/" : `/${item.label.toLowerCase().replaceAll(" ", "-")}`} aria-current={view === item.label ? "page" : undefined}><Icon name={item.icon} /><span>{item.label}</span>{view === item.label && <span className="active-mark" />}</Link>
       : <button key={item.label} className="nav-item" disabled title={`${item.label} view is not built in this milestone`}><Icon name={item.icon} /><span>{item.label}</span><span className="nav-planned">Later</span></button>)}
   </nav>;
 }
 
-export function Overview() {
+export function Overview({ view = "Overview" }: { view?: "Overview" | ConceptName }) {
   const [filter, setFilter] = useState<Filter>("All evidence");
   const [selectedEvidence, setSelectedEvidence] = useState<EvidenceItem>(evidence[0]);
   const [dialogMode, setDialogMode] = useState<"source" | "about">("source");
@@ -50,31 +52,32 @@ export function Overview() {
   return <div className="app-shell">
     <a className="skip-link" href="#main-content">Skip to content</a>
     <aside className="sidebar">
-      <a className="brand-link" href="#overview" aria-label="Neverlost demo overview"><Wordmark /></a>
+      <Link className="brand-link" href="/" aria-label="Neverlost demo overview"><Wordmark /></Link>
       <div className="workspace-label"><span className="version-square">V1</span><div>Healthcare Roadmap<small>Historical prototype</small></div></div>
       <p className="nav-heading">WORKSPACE</p>
-      <Navigation />
-      <p className="nav-scope">Overview is ready to explore.<br />Remaining views are planned.</p>
+      <Navigation view={view} />
+      <p className="nav-scope">Four views are ready to explore.<br />Three categories remain planned.</p>
       <div className="sidebar-bottom">
         <div className="archive-note"><span className="archive-symbol">↳</span><p>A preserved beginning.<small>June 2026 · Python prototype</small></p></div>
         <a className="source-link" href={HISTORICAL_SOURCE_URL} target="_blank" rel="noreferrer">Historical source <Icon name="external" width="14" height="14" /></a>
-        <div className="sidebar-edition"><span>PORTFOLIO EDITION</span><span>01</span></div>
+        <div className="sidebar-edition"><span>PORTFOLIO EDITION</span><span>02</span></div>
       </div>
     </aside>
 
     <div className="workspace" id="overview">
       <header className="topbar">
-        <div className="breadcrumb"><span>Neverlost V1</span><span className="breadcrumb-slash">/</span><span>Overview</span></div>
+        <div className="breadcrumb"><span>Neverlost V1</span><span className="breadcrumb-slash">/</span><span>{view}</span></div>
         <div className="topbar-actions"><span className="static-label"><span />Static demonstration</span><button className="about-button" onClick={openAbout}><Icon name="info" width="16" height="16" /><span>About this demo</span></button></div>
       </header>
       <div className="mobile-brand"><Wordmark /><span className="tag">V1 / DEMO</span></div>
-      <details className="mobile-navigation"><summary>Overview <span>Browse categories</span><Icon name="chevron" width="16" height="16" /></summary><Navigation /><p>Only the Overview is implemented in this milestone.</p></details>
+      <details className="mobile-navigation"><summary>{view} <span>Browse categories</span><Icon name="chevron" width="16" height="16" /></summary><Navigation view={view} /><p>Overview and three analytical concept views are available.</p></details>
 
       <main id="main-content">
-        <div className="page-heading"><div><p className="eyebrow">THE HEALTHCARE ROADMAP / V1</p><h1>Overview<span className="heading-period">.</span></h1><p className="page-description">A source-linked perspective. A human-reviewed next step.</p></div><span className="sample-label">SAMPLE WORKSPACE <span>01</span></span></div>
+        <div className="page-heading"><div><p className="eyebrow">THE HEALTHCARE ROADMAP / V1</p><h1>{view}<span className="heading-period">.</span></h1><p className="page-description">{view === "Overview" ? "A source-linked perspective. A human-reviewed next step." : conceptCopy[view].description}</p></div><span className="sample-label">SAMPLE WORKSPACE <span>01</span></span></div>
 
         <div className="disclaimer" role="note"><Icon name="info" width="17" height="17" /><p>{DISCLAIMER}</p></div>
 
+        {view === "Overview" ? <>
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-copy"><span className="hero-kicker"><span className="small-line" />CONTEXT BEFORE CONCLUSIONS</span><h2 id="hero-title">From scattered records<br />to a clearer picture.</h2><p>An interface study of the original healthcare prototype. Explore a hand-authored sample, with the source and its interpretation kept in view.</p><a className="primary-button" href="#evidence">Inspect sample evidence <Icon name="arrow" width="17" height="17" /></a><span className="hero-footnote">Presentation only. No records are processed.</span></div>
           <div className="hero-path" aria-label="Historical review model, illustrated only">
@@ -120,7 +123,8 @@ export function Overview() {
           <div className="evidence-footer"><span><span className="tiny-square" />All entries are synthetic and require human review.</span><span>No uploads. No background processing.</span></div>
         </section>
 
-        <section className="scope-strip" aria-label="Milestone scope"><Icon name="overview" /><div><strong>One overview. A deliberately limited demonstration.</strong><p>The fixtures also include {hiddenStates.length} candidate hidden state and {reports.length} report categories. Their dedicated views, along with the other planned categories, are not built yet.</p></div><span className="tag">MILESTONE 01</span></section>
+        </> : <ConceptView view={view} openSource={openSource} />}
+        <section className="scope-strip" aria-label="Milestone scope"><Icon name="overview" /><div><strong>Four views. A deliberately limited demonstration.</strong><p>Overview, Hidden States, Bottlenecks, and Capacity Windows use static synthetic fixtures. Timeline, Evidence Matrix, and Reports remain planned. No analysis is executed and no decisions are saved.</p></div><span className="tag">MILESTONE 02</span></section>
         <footer className="page-footer"><span>Neverlost V1 <span className="footer-divider">/</span> Portfolio presentation layer</span><span>New interface · September 2026</span></footer>
       </main>
     </div>
@@ -137,7 +141,7 @@ export function Overview() {
       </> : <>
         <h2 id="dialog-title">A new window into an old prototype.</h2>
         <p className="about-lead">This is a standalone portfolio interface, built in September 2026. It is not the historical June Python application and does not run its pipeline.</p>
-        <ul className="about-list"><li>All displayed records and source excerpts are invented.</li><li>No authentication, database, API keys, uploads, or record processing.</li><li>No LLM execution, autonomous agents, durable state, or clinical validation.</li><li>Only the Overview is implemented. Filters and dialogs are temporary browser interactions, not saved review decisions.</li></ul>
+        <ul className="about-list"><li>All displayed records and source excerpts are invented.</li><li>No authentication, database, API keys, uploads, or record processing.</li><li>No LLM execution, autonomous agents, durable state, or clinical validation.</li><li>Overview and three analytical concept views are implemented. Filters and dialogs are temporary browser interactions, not saved review decisions.</li></ul>
         <p className="dialog-footnote">{DISCLAIMER}</p>
         <a className="primary-button" href={HISTORICAL_SOURCE_URL} target="_blank" rel="noreferrer">Read the historical source <Icon name="external" width="16" height="16" /></a>
       </>}

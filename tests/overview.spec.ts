@@ -16,7 +16,7 @@ test("Overview is responsive, honest about scope, and accessible", async ({ page
   await expect(page.getByRole("table").getByRole("row")).toHaveCount(5);
   if (testInfo.project.name === "mobile") await page.locator(".mobile-navigation > summary").click();
   const nav = page.getByRole("navigation", { name: "Demo views" }).filter({ visible: true });
-  await expect(nav.getByRole("button")).toHaveCount(6);
+  await expect(nav.getByRole("button")).toHaveCount(3);
   for (const button of await nav.getByRole("button").all()) await expect(button).toBeDisabled();
   if (testInfo.project.name === "mobile") await page.locator(".mobile-navigation > summary").click();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
