@@ -1,0 +1,40 @@
+.counts { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin:24px 0; }
+.counts > div { padding:20px; border:1px solid var(--line); background:var(--surface); border-radius:8px; }
+.counts span,.score span { display:block; font-size:12px; color:var(--text-muted); line-height:1.7; }
+.counts strong { display:block; font-family:var(--font-heading); font-size:28px; color:var(--brand-dark); margin-top:8px; }
+.filter { display:flex; align-items:center; gap:14px; flex-wrap:wrap; font-size:13px; }
+.filter select { min-height:44px; max-width:100%; padding:10px; border:1px solid var(--line); border-radius:6px; color:var(--text); background:var(--surface); font:inherit; }
+.candidates { display:grid; gap:18px; }
+.cardTop { display:flex; justify-content:space-between; gap:20px; padding:22px 24px 12px; }
+.cardTop h2 { font-size:18px; margin:0; }
+.cardTop p { font-size:12px; line-height:1.8; color:var(--text-muted); }
+.score { text-align:right; flex-shrink:0; }
+.score strong { font-size:26px; color:var(--brand-dark); font-family:var(--font-heading); }
+.decision { padding:16px 24px; background:var(--surface-muted); font-size:13px; line-height:1.8; }
+.decision p { margin:6px 0 0; color:var(--text-muted); }
+.reference { margin:0; padding:16px 24px 4px; font-size:12px; color:var(--text-muted); overflow-wrap:anywhere; }
+.details { padding:0 24px 20px; font-size:13px; line-height:1.9; }
+.details summary { min-height:48px; align-content:center; cursor:pointer; color:var(--brand-dark); }
+.details h3 { font-size:17px; margin-top:24px; }
+.details a { color:var(--brand-dark); }
+.details li { overflow-wrap:anywhere; }
+.components { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.components section { padding:16px; border:1px solid var(--line); border-radius:6px; }
+.components h4 { margin:0; font-size:13px; }
+.components h4 span { float:right; color:var(--brand-dark); }
+.components ul { padding-left:18px; font-size:12px; color:var(--text-muted); }
+.inputs { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; background:var(--bg); padding:18px; }
+.inputs dt { font-size:11px; color:var(--text-muted); }
+.inputs dd { margin:6px 0 0; overflow-wrap:anywhere; }
+@media(max-width:600px) {
+  .counts { gap:8px; }
+  .counts > div { padding:12px 8px; }
+  .counts strong { font-size:22px; }
+  .counts span { font-size:11px; }
+  .components,.inputs { grid-template-columns:1fr; }
+  .cardTop { padding:18px; gap:12px; }
+  .decision,.reference { padding-left:18px; padding-right:18px; }
+  .details { padding:0 18px 18px; }
+  .details button { width:100%; }
+}
+
