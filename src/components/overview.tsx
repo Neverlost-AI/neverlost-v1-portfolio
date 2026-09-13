@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
+import { VersionSelector } from "@/components/version-selector";
 import { OutputView } from "@/components/output-view";
 import { outputCopy, type OutputName } from "@/lib/output-data";
 import { ConceptView, conceptCopy, type ConceptName } from "@/components/concept-view";
@@ -78,6 +79,7 @@ export function Overview({ view = "Overview" }: { view?: "Overview" | ConceptNam
         <div className="page-heading"><div><p className="eyebrow">THE HEALTHCARE ROADMAP / V1</p><h1>{view}<span className="heading-period">.</span></h1><p className="page-description">{view === "Overview" ? "A source-linked perspective. A human-reviewed next step." : view in conceptCopy ? conceptCopy[view as ConceptName].description : outputCopy[view as OutputName].description}</p></div><span className="sample-label">SAMPLE WORKSPACE <span>01</span></span></div>
 
         <div className="disclaimer" role="note"><Icon name="info" width="17" height="17" /><p>{DISCLAIMER}</p></div>
+        <VersionSelector current="v1" />
 
         {view === "Overview" ? <>
         <section className="hero" aria-labelledby="hero-title">
