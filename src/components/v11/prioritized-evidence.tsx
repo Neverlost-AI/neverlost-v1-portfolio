@@ -31,6 +31,7 @@ export function PrioritizedEvidence(){
       <p className={base.reconstruction}>{RECONSTRUCTION}</p>
       <nav className={base.navigation} aria-label="V1.1 surfaces"><Link href="/v1-1">Source Authority / Evidence</Link><Link href="/v1-1/run-review">Run Review</Link><Link href="/v1-1/prioritized-evidence" aria-current="page">Prioritized Evidence</Link></nav>
       <p className={base.reconstruction}>Continue to M06 · <Link href="/v1-1/capacity-themes">Capacity Themes</Link> → <Link href="/v1-1/denials-bottlenecks">Denials &amp; Bottlenecks</Link></p>
+      <p className={base.reconstruction}><Link href="/v1-1/final-review">Final Review / Reports</Link> · Existing results and historical limits</p>
       <section className="concept-intro panel"><p className="eyebrow">RANKING IS NOT JUDGMENT</p><h2>A smaller set, not a stronger truth.</h2><p>These historical heuristics order synthetic rows for human inspection. Scores and suggested-use labels do not establish clinical importance, truth, eligibility, medical necessity, or professional judgment. Selected and excluded are computed membership—not accept/reject decisions.</p></section>
       <details className={base.changeNote}><summary>Ranking formula & selection rules</summary>
         <p>Total = source authority + functional impact + system relevance + actionability + trunc(existing evidence-strength score / 8). Each component has multiplier 1. Open a candidate to inspect every matched contribution and its supplied inputs.</p>
