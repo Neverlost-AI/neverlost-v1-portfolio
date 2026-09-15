@@ -1,15 +1,20 @@
 .workspace { min-height: 100vh; background: var(--bg); }
-.header { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px max(24px, calc((100vw - 1160px) / 2)); background: var(--dark); color: var(--surface); }
-.brand { text-decoration: none; font-family: var(--font-heading); font-size: 27px; font-weight: 600; letter-spacing: -1px; }
-.brand span { color: var(--brand-on-dark); }
+.header { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px max(24px, calc((100vw - 1160px) / 2)); background: #041a33; color: var(--surface); border-bottom: 1px solid var(--dark-soft); }
+.brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-family: var(--font-heading); font-size: 18px; font-weight: 800; letter-spacing: -.4px; }
+.brand span { color: var(--surface); }
+.brandLogo { display: block; flex-shrink: 0; }
+.brand:focus-visible { outline-color: var(--brand-on-dark); }
 .header > span { font-size: 10px; color: var(--brand-on-dark); letter-spacing: 1px; text-align: right; line-height: 1.8; }
 .main { max-width: 1160px; padding: 32px 24px; margin: auto; }
-.main h1 { font-size: clamp(28px, 4vw, 38px); line-height: 1.25; }
+.main h1 { font-size: clamp(28px, 4vw, 38px); line-height: 1.25; font-weight: 700; letter-spacing: -.8px; }
+.workspace :global(.primary-button) { border-radius: 6px; gap: 12px; font-weight: 600; }
+.workspace :global(.detail-dialog) h2 { font-weight: 600; }
 .reconstruction { font-size: 12px; color: var(--brand-dark); line-height: 1.8; }
 .navigation { display: flex; gap: 12px; flex-wrap: wrap; margin: 24px 0; }
-.navigation a { padding: 14px 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; color: var(--text-muted); text-decoration: none; font-size: 13px; }
+.navigation a { padding: 14px 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 600; }
 .navigation a[aria-current="page"] { color: var(--surface); background: var(--brand); border-color: var(--brand); }
-.navigation a:hover { text-decoration: underline; }
+.navigation a:hover { color: var(--brand-dark); border-color: var(--brand); text-decoration: underline; }
+.navigation a[aria-current="page"]:hover { color: var(--surface); background: var(--brand-dark); border-color: var(--brand-dark); }
 .changeNote { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px 24px; margin-bottom: 20px; }
 .changeNote summary, .entries summary { cursor: pointer; min-height: 44px; align-content: center; font-size: 13px; }
 .changeNote p, .scenario p, .scenario small { line-height: 1.9; color: var(--text-muted); font-size: 12px; }
@@ -53,7 +58,9 @@
 @media (max-width: 800px) { .manifest dl { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) {
   .main { padding: 24px 18px; }
-  .header { padding: 20px 18px; }
+  .header { padding: 20px 18px; gap: 16px; }
+  .brand { font-size: 14px; gap: 8px; }
+  .brandLogo { width: 36px; height: 36px; }
   .header > span { max-width: 140px; font-size: 9px; }
   .navigation { display: grid; grid-template-columns: 1fr; }
   .fields, .entry dl { grid-template-columns: 1fr; }

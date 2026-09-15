@@ -1,5 +1,7 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
+import nvltLogo from "./nvlt-official-logo.svg";
 import { useRef, useState } from "react";
 import { VersionSelector } from "@/components/version-selector";
 import { Icon } from "@/components/icon";
@@ -23,7 +25,7 @@ export function PrioritizedEvidence(){
   const denialPresent=scenario.rows.some(r=>r.source.type==="insurance denial letter");
   return <div className={base.workspace}>
     <a className="skip-link" href="#priority-main">Skip to content</a>
-    <header className={base.header}><Link href="/v1-1" className={base.brand}>neverlost<span>.</span></Link><span>V1.1 / RECONSTRUCTION · M05</span></header>
+    <header className={base.header}><Link href="/v1-1" className={base.brand}><Image src={nvltLogo} alt="" width={44} height={44} className={base.brandLogo}/><span>Neverlost Systems</span></Link><span>V1.1 / RECONSTRUCTION · M05</span></header>
     <main id="priority-main" className={base.main}>
       <VersionSelector current="v11"/>
       <div className="page-heading"><div><p className="eyebrow">BOUNDED REVIEW / EXPLAINABLE SELECTION</p><h1>Prioritized Evidence</h1><p className="page-description">Inspect the full candidate set and the rules behind its bounded selection.</p></div></div>
@@ -70,4 +72,3 @@ export function PrioritizedEvidence(){
     <dialog ref={dialog} className="detail-dialog" aria-labelledby="priority-dialog-title"><div className="dialog-header"><span className="eyebrow">M05 / SYNTHETIC PROVENANCE</span><button className="close-button" aria-label="Close source dialog" onClick={()=>dialog.current?.close()}><Icon name="close"/></button></div><h2 id="priority-dialog-title">Synthetic source inspection</h2>{source&&<><div className="source-quote"><blockquote>{source.source.excerpt}</blockquote></div><dl className="provenance-fields">{[["Evidence ID",source.id],["Document",source.source.document],["Page",String(source.source.page)],["Chunk",source.source.chunk],["Source type",source.source.type],["Authority · fixture label",source.source.authority]].map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl><p className="dialog-footnote">Independently invented data. Source authority and ranking are not authenticated provenance or professional judgment. No historical record is loaded.</p></>}</dialog>
   </div>;
 }
-

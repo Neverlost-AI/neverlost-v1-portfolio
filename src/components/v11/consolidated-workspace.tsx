@@ -1,5 +1,7 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
+import nvltLogo from "./nvlt-official-logo.svg";
 import {useRef,useState} from "react";
 import {VersionSelector} from "@/components/version-selector";
 import {Icon} from "@/components/icon";
@@ -22,7 +24,7 @@ export function ConsolidatedWorkspace({view}:{view:"themes"|"denials"}){
  const sourceLink=(row:Evidence)=><a href={"#source-"+row.id}>{reference(row)}</a>;
  return <div className={base.workspace}>
   <a className="skip-link" href="#m06-main">Skip to content</a>
-  <header className={base.header}><Link href="/v1-1" className={base.brand}>neverlost<span>.</span></Link><span>V1.1 / RECONSTRUCTION · M06</span></header>
+  <header className={base.header}><Link href="/v1-1" className={base.brand}><Image src={nvltLogo} alt="" width={44} height={44} className={base.brandLogo}/><span>Neverlost Systems</span></Link><span>V1.1 / RECONSTRUCTION · M06</span></header>
   <main id="m06-main" className={base.main}>
    <VersionSelector current="v11"/>
    <div className="page-heading"><div><p className="eyebrow">V1 CONCEPTS / RECOVERED V1.1 EXTENSION</p><h1>{title}</h1><p className="page-description">Trace the grouping. Inspect the trigger. Keep the limits visible.</p></div></div>

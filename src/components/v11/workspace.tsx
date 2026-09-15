@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import nvltLogo from "./nvlt-official-logo.svg";
 import { useRef, useState } from "react";
 import { Icon } from "@/components/icon";
 import { VersionSelector } from "@/components/version-selector";
@@ -26,7 +28,7 @@ export function V11Workspace({ view }: { view: "source" | "review" }) {
 
   return <div className={styles.workspace}>
     <a className="skip-link" href="#v11-main">Skip to content</a>
-    <header className={styles.header}><Link href="/v1-1" className={styles.brand}>neverlost<span>.</span></Link><span>V1.1 / RECONSTRUCTION · M04</span></header>
+    <header className={styles.header}><Link href="/v1-1" className={styles.brand}><Image src={nvltLogo} alt="" width={44} height={44} className={styles.brandLogo}/><span>Neverlost Systems</span></Link><span>V1.1 / RECONSTRUCTION · M04</span></header>
     <main id="v11-main" className={styles.main}>
       <VersionSelector current="v11" />
       <div className="page-heading"><div><p className="eyebrow">RECOVERED EXTENSION / NEW PRESENTATION</p><h1>{title}</h1><p className="page-description">Source-bounded evidence. Deterministic review. Human judgment.</p></div></div>
