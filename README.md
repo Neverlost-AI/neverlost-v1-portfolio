@@ -22,7 +22,7 @@ No authentication, database, API keys, uploads, external data calls, processing 
 
 ## Local development
 
-Use Node.js 22.13 or newer and npm.
+Use Node.js 24.x and npm 11.17.0, matching the deployment-readiness toolchain.
 
 ```sh
 npm ci
@@ -50,6 +50,8 @@ On September 12, 2026: lint (zero warnings/errors), production build, TypeScript
 `npm ci --dry-run --ignore-scripts --no-audit --no-fund` also passed. npm still reports upstream peer-range warnings for three bundled lint plugins whose declared ranges stop at ESLint 9; the official compatibility adapter handles their runtime APIs. These are install warnings, not suppressed lint failures. The dependency audit reported zero vulnerabilities at installation. Neither a Vercel deployment nor real-record validation was performed.
 
 ## Vercel deployment
+
+For the frozen V1/V1.1 release, follow the [deployment-readiness settings and release gate](docs/deployment-readiness.md). This does not authorize deployment.
 
 This is a conventional App Router app using Next.js's default deployment output. Import **this project directory only** as the Vercel project root; select the Next.js framework preset. Build command: `npm run build`. No environment variables, authentication, database, custom output-directory override, or API keys are required. Deployment itself is not performed by creating this demo.
 

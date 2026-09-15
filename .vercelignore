@@ -1,0 +1,22 @@
+# Upload only application source and build inputs, never the parent workspace.
+/*
+!src/
+!package.json
+!package-lock.json
+!next.config.ts
+!next-env.d.ts
+!tsconfig.json
+!eslint.config.mjs
+!.vercelignore
+
+# Retain Git's local/private exclusions inside any allowed directory.
+**/node_modules/
+**/.next/
+**/out/
+**/.vercel/
+**/playwright-report/
+**/test-results/
+**/*.tsbuildinfo
+**/.env*
+**/*.log
+**/.git/
