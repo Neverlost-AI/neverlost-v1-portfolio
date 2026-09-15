@@ -1,6 +1,6 @@
 # Upload only application source and build inputs, never the parent workspace.
 /*
-!src/
+!src
 !package.json
 !package-lock.json
 !next.config.ts
