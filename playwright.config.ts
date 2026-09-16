@@ -13,10 +13,17 @@ export default defineConfig({
     { name: "desktop", use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 1080 } } },
     { name: "mobile", use: { ...devices["iPhone 13"], defaultBrowserType: "chromium" } },
   ],
-  webServer: {
+  webServer: [{
     command: "npm run start -- --hostname 127.0.0.1 --port 3100",
     url: "http://127.0.0.1:3100",
     reuseExistingServer: false,
     timeout: 60_000,
-  },
+  }, {
+    command: process.platform === "win32"
+      ? '"engine/.venv/Scripts/python.exe" -B -m uvicorn api.index:app --host 127.0.0.1 --port 8100 --no-access-log'
+      : "engine/.venv/bin/python -B -m uvicorn api.index:app --host 127.0.0.1 --port 8100 --no-access-log",
+    url: "http://127.0.0.1:8100/api/v2/cases",
+    reuseExistingServer: false,
+    timeout: 60_000,
+  }],
 });

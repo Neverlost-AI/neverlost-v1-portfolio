@@ -1,0 +1,3 @@
+# Historical files are evidence: never normalize their bytes on checkout.
+engine/historical/** -text
+synthetic_cases/** -text

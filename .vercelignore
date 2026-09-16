@@ -8,6 +8,12 @@
 !tsconfig.json
 !eslint.config.mjs
 !.vercelignore
+!vercel.json
+!.python-version
+!requirements.txt
+!api
+!engine
+!synthetic_cases
 
 # Retain Git's local/private exclusions inside any allowed directory.
 **/node_modules/
@@ -20,3 +26,7 @@
 **/.env*
 **/*.log
 **/.git/
+**/.venv/
+**/__pycache__/
+**/*.pyc
+**/.gitignore

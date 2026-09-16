@@ -1,0 +1,56 @@
+.shell { min-height: 100vh; line-height: 1.65; }
+.header { background: var(--dark); color: white; padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.brand { display: flex; align-items: center; gap: 14px; text-decoration: none; font-family: var(--font-heading); font-weight: 700; font-size: 18px; }
+.brand small { display: block; color: #c2d5f4; font-size: 12px; font-weight: 400; }
+.header nav { display: flex; gap: 20px; }
+.header a:focus-visible { outline-color: white; }
+.frame { display: grid; grid-template-columns: 220px minmax(0, 1fr); }
+.navigation { padding: 28px 18px; border-right: 1px solid var(--line); background: var(--surface); }
+.navigation a { display: block; padding: 12px; margin-bottom: 5px; border-radius: 5px; text-decoration: none; }
+.navigation a[aria-current="page"] { background: var(--brand); color: white; }
+.navigation span { display: block; color: var(--text-muted); padding: 16px 12px; font-size: 12px; }
+.main { width: 100%; max-width: 1120px; padding: 32px; min-width: 0; }
+.main h1 { font-size: 34px; font-weight: 650; letter-spacing: -.8px; }
+.main h2 { font-size: 21px; margin-top: 0; }
+.main h3 { font-size: 18px; }
+.kicker { color: var(--brand-dark); font-size: 10px; letter-spacing: 1.2px; }
+.notice { color: var(--text-muted); font-size: 12px; }
+.warning { background: var(--surface-muted); border-left: 4px solid var(--brand); padding: 16px; margin: 20px 0; }
+.panel { padding: 24px; border: 1px solid var(--line); background: var(--surface); border-radius: 7px; margin: 22px 0; min-width: 0; }
+.panel label { display: block; font-weight: 600; margin-bottom: 8px; }
+.panel select { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--line); border-radius: 5px; padding: 12px; width: 100%; max-width: 500px; }
+.primary, .secondary { min-height: 44px; padding: 11px 16px; border-radius: 5px; margin: 8px 8px 8px 0; }
+.primary { background: var(--brand); color: white; }
+.primary:disabled { background: var(--surface-muted); color: var(--text-muted); }
+.secondary { background: var(--surface); border: 1px solid var(--line); color: var(--brand-dark); text-align: left; overflow-wrap: anywhere; }
+.source { border-top: 1px solid var(--line); padding: 14px 0; }
+.source p { margin: 6px 0; color: var(--text-muted); font-size: 12px; }
+.shell code, .shell dd { overflow-wrap: anywhere; }
+.ledger { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 8px; font-size: 12px; }
+.ledger dt, .field dt { font-weight: 650; }
+.ledger dd, .field dd { margin: 0; }
+.metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 14px; margin: 24px 0; }
+.metrics strong { display: block; font-size: 25px; color: var(--brand-dark); }
+.metrics span { color: var(--text-muted); font-size: 11px; }
+.shell summary { cursor: pointer; min-height: 44px; padding: 10px 0; font-weight: 600; overflow-wrap: anywhere; }
+.field { padding: 10px 0; border-bottom: 1px solid var(--line); }
+.shell pre { white-space: pre-wrap; overflow-wrap: anywhere; font-family: var(--font-body); font-size: 13px; line-height: 1.8; margin: 8px 0; }
+.report { padding: 12px 0; }
+.dialog { color: var(--text); width: min(850px, calc(100vw - 32px)); max-height: 85dvh; border: 1px solid var(--line); border-radius: 8px; padding: 28px; overflow: auto; }
+.dialog::backdrop { background: rgba(15,29,48,.65); }
+.dialogHeading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.dialog h2 { overflow-wrap: anywhere; }
+@media (max-width: 760px) {
+  .header { padding: 16px; align-items: flex-start; flex-direction: column; }
+  .header nav { flex-wrap: wrap; font-size: 12px; }
+  .frame { grid-template-columns: 1fr; }
+  .navigation { display: flex; flex-wrap: wrap; gap: 4px; padding: 12px; border-bottom: 1px solid var(--line); }
+  .navigation a { padding: 8px 10px; font-size: 12px; min-height: 44px; }
+  .navigation span { width: 100%; padding: 6px 10px; }
+  .main { padding: 24px 16px; }
+  .panel { padding: 18px; }
+  .ledger { grid-template-columns: 1fr; gap: 4px; }
+  .ledger dd { margin-bottom: 10px; }
+  .dialog { padding: 18px; }
+  .dialogHeading { align-items: flex-start; flex-direction: column; }
+}

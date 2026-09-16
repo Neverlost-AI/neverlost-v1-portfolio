@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "required": ["intervention", "capacity_window_created", "source"],
+  "properties": {
+    "intervention": { "type": "string" },
+    "capacity_window_created": { "type": "string" },
+    "learning": { "type": "string" },
+    "habit_formation": { "type": "string" },
+    "functional_change": { "type": "string" },
+    "gains_retained": { "type": "string" },
+    "what_became_possible": { "type": "string" },
+    "evidence_source": { "type": "string" },
+    "source_evidence": { "type": "string" },
+    "source": { "type": "object" },
+    "confidence_level": { "type": "string", "enum": ["high", "medium", "low", "unknown"] }
+  }
+}

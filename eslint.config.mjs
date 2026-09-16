@@ -7,5 +7,5 @@ export default defineConfig([
   // Next's React plugin still uses context APIs removed in ESLint 10.
   // The official adapter preserves the rules; none are disabled.
   ...fixupConfigRules([...nextVitals, ...nextTypeScript]),
-  globalIgnores([".next/**", "out/**", "next-env.d.ts", "playwright-report/**", "test-results/**"]),
+  globalIgnores([".next/**", "out/**", "next-env.d.ts", "playwright-report/**", "test-results/**", "engine/.venv/**"]),
 ]);

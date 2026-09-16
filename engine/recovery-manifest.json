@@ -1,0 +1,190 @@
+{
+  "format_version": 1,
+  "v1_source": "Neverlost-AI/neverlost-v1 — frozen public recovery snapshot",
+  "v11_source": "Active recovered local V1.1 workspace; private location intentionally omitted",
+  "ancestry": "File comparison, not authenticated historical Git ancestry",
+  "v1_files": [
+    {
+      "path": "requirements.txt",
+      "sha256": "1714123a8c81a8b7050510aa632f35a3c14bc477d23c824f5f3d2a6e14137d1a",
+      "v11_sha256": "1714123a8c81a8b7050510aa632f35a3c14bc477d23c824f5f3d2a6e14137d1a",
+      "v11_status": "recovered_identical"
+    },
+    {
+      "path": "schemas/bottleneck_schema.json",
+      "sha256": "66e0b81d1cc3ada56c72254f19f69569ccd4fd05ce18f3657405c7d0c42137f2",
+      "v11_sha256": "66e0b81d1cc3ada56c72254f19f69569ccd4fd05ce18f3657405c7d0c42137f2",
+      "v11_status": "recovered_identical"
+    },
+    {
+      "path": "schemas/capacity_window_schema.json",
+      "sha256": "36c818480df53326664e2207910545b4402c56c1835670e81cc2d39e226a623a",
+      "v11_sha256": "36c818480df53326664e2207910545b4402c56c1835670e81cc2d39e226a623a",
+      "v11_status": "recovered_identical"
+    },
+    {
+      "path": "schemas/evidence_matrix_schema.json",
+      "sha256": "40e3c0d18bf44badf61ad2ee8f95cd5944740cd8bf6831cc55021937d9a976ec",
+      "v11_sha256": "40e3c0d18bf44badf61ad2ee8f95cd5944740cd8bf6831cc55021937d9a976ec",
+      "v11_status": "recovered_identical"
+    },
+    {
+      "path": "schemas/hidden_state_schema.json",
+      "sha256": "573a551219601d851c69406ed5384e36d0d9536653ba8f8edfefd3c1bcb62515",
+      "v11_sha256": "573a551219601d851c69406ed5384e36d0d9536653ba8f8edfefd3c1bcb62515",
+      "v11_status": "recovered_identical"
+    },
+    {
+      "path": "schemas/timeline_event_schema.json",
+      "sha256": "fb661cde402f53c727a81f7e6bb7ebf1bfd6972876976ff7307b2cce32bff185",
+      "v11_sha256": "fb661cde402f53c727a81f7e6bb7ebf1bfd6972876976ff7307b2cce32bff185",
+      "v11_status": "recovered_identical"
+    },
+    {
+      "path": "schemas/trust_threshold_schema.json",
+      "sha256": "5fb67710018829a602f85dce86b34d679777d47dd058ede3f56c7060117a8abb",
+      "v11_sha256": "5fb67710018829a602f85dce86b34d679777d47dd058ede3f56c7060117a8abb",
+      "v11_status": "recovered_identical"
+    },
+    {
+      "path": "src/app.py",
+      "sha256": "487a83df20e327515ea82c6a57ba9b6e8ba62db33d60d1f66349a32c997e1db5",
+      "v11_sha256": "487a83df20e327515ea82c6a57ba9b6e8ba62db33d60d1f66349a32c997e1db5",
+      "v11_status": "recovered_identical"
+    },
+    {
+      "path": "src/build_evidence_matrix.py",
+      "sha256": "db7ed198c204f9da248acc99087cadb532285c343c85fc861013c6bb4524b470",
+      "v11_sha256": "3fb6358454e27490f30ed5313996fd07be0d9b091bd7ea442dcef11fa496947c",
+      "v11_status": "recovered_modified_not_copied"
+    },
+    {
+      "path": "src/build_timeline.py",
+      "sha256": "633ab6101dc1259a3cd7417ce06052685fdc8e5bdc7f389ca99f971db093197d",
+      "v11_sha256": "633ab6101dc1259a3cd7417ce06052685fdc8e5bdc7f389ca99f971db093197d",
+      "v11_status": "recovered_identical"
+    },
+    {
+      "path": "src/case_profile.py",
+      "sha256": "33cbf80a8898b6f76c804a14167b6ebfece9a26fc2d1d747b00069ce3c09d137",
+      "v11_sha256": "33cbf80a8898b6f76c804a14167b6ebfece9a26fc2d1d747b00069ce3c09d137",
+      "v11_status": "recovered_identical"
+    },
+    {
+      "path": "src/chunk_documents.py",
+      "sha256": "e732f209d38c02a72a63de795f2a68175ff7be6166c90fff6a7fd22b6db7b40b",
+      "v11_sha256": "e732f209d38c02a72a63de795f2a68175ff7be6166c90fff6a7fd22b6db7b40b",
+      "v11_status": "recovered_identical"
+    },
+    {
+      "path": "src/config.py",
+      "sha256": "ea638514a2980f3cc2e5420ada406de236768394a048b434c4251e2c61972562",
+      "v11_sha256": "ea638514a2980f3cc2e5420ada406de236768394a048b434c4251e2c61972562",
+      "v11_status": "recovered_identical"
+    },
+    {
+      "path": "src/detect_bottlenecks.py",
+      "sha256": "7f5ab52f402c00ccd0de74f64dbf51210d35422ee49c357c6b75b21a089c3965",
+      "v11_sha256": "877c4d481586b2a765fa723a6a02b3bc5ef2a7fda6e753680a7a27fae3b6f750",
+      "v11_status": "recovered_modified_not_copied"
+    },
+    {
+      "path": "src/detect_hidden_states.py",
+      "sha256": "49f83b5ad4396380d585c9a293560026803bea2e075f289f50f1321693e24870",
+      "v11_sha256": "49f83b5ad4396380d585c9a293560026803bea2e075f289f50f1321693e24870",
+      "v11_status": "recovered_identical"
+    },
+    {
+      "path": "src/detect_trust_thresholds.py",
+      "sha256": "188d92fe3705f2d91fbcca2e0fb204f835bfeb45d37c9fa604403352d2882cdc",
+      "v11_sha256": "188d92fe3705f2d91fbcca2e0fb204f835bfeb45d37c9fa604403352d2882cdc",
+      "v11_status": "recovered_identical"
+    },
+    {
+      "path": "src/extract_events.py",
+      "sha256": "c8bd4e24c33661f87e1f0115c6ef70c9c69e40664a84ea3df59f2e4cdcfa9190",
+      "v11_sha256": "c8bd4e24c33661f87e1f0115c6ef70c9c69e40664a84ea3df59f2e4cdcfa9190",
+      "v11_status": "recovered_identical"
+    },
+    {
+      "path": "src/extract_text.py",
+      "sha256": "2a59e4158537b717836abbabf25b919b5c5c31746d26c0ff46e3d8ac9e86c98a",
+      "v11_sha256": "2a59e4158537b717836abbabf25b919b5c5c31746d26c0ff46e3d8ac9e86c98a",
+      "v11_status": "recovered_identical"
+    },
+    {
+      "path": "src/generate_reports.py",
+      "sha256": "fb6dd471e7b67316c9be534a08b97ccd90b668040c2bc1e6fc8662e7cb00a579",
+      "v11_sha256": "8291501f8ceb3e763293f6509cef975395dc83f9cff7b9c4030b491aa22e70e8",
+      "v11_status": "recovered_modified_not_copied"
+    },
+    {
+      "path": "src/ingest_documents.py",
+      "sha256": "f72e14ba6030099ccb50a83b4be75e1a05c3bd6fd5d3fdb52cae500784290a87",
+      "v11_sha256": "f72e14ba6030099ccb50a83b4be75e1a05c3bd6fd5d3fdb52cae500784290a87",
+      "v11_status": "recovered_identical"
+    },
+    {
+      "path": "src/llm_extraction.py",
+      "sha256": "3f962a5552ecd3298d629954d03b7cc65771b521401c5666b2d06301219f417b",
+      "v11_sha256": "3f962a5552ecd3298d629954d03b7cc65771b521401c5666b2d06301219f417b",
+      "v11_status": "recovered_identical"
+    },
+    {
+      "path": "src/main.py",
+      "sha256": "648af8f8b4bfcc88a2b65538a4fef685e73b4a4dd885e85ab299c997ab9bece8",
+      "v11_sha256": "648af8f8b4bfcc88a2b65538a4fef685e73b4a4dd885e85ab299c997ab9bece8",
+      "v11_status": "recovered_identical"
+    },
+    {
+      "path": "src/track_capacity_windows.py",
+      "sha256": "2bdd8e2d7faed3b25af763f8cf8ecb00c8ea743f37944f266324609a5a8dc3a3",
+      "v11_sha256": "2bdd8e2d7faed3b25af763f8cf8ecb00c8ea743f37944f266324609a5a8dc3a3",
+      "v11_status": "recovered_identical"
+    },
+    {
+      "path": "src/utils.py",
+      "sha256": "145a11275bc9e34dbadc388c7a3744de70b42a3ffe8781dc8b5b06d27925a5f3",
+      "v11_sha256": "145a11275bc9e34dbadc388c7a3744de70b42a3ffe8781dc8b5b06d27925a5f3",
+      "v11_status": "recovered_identical"
+    },
+    {
+      "path": "src/windows_ocr.ps1",
+      "sha256": "ca8ca5f46983d6339433c62a108202bf66b58e658a620b4d28fdf61f60ad32cd",
+      "v11_sha256": "ca8ca5f46983d6339433c62a108202bf66b58e658a620b4d28fdf61f60ad32cd",
+      "v11_status": "recovered_identical"
+    }
+  ],
+  "v11_added": [
+    {
+      "path": "src/light_agentic_review.py",
+      "sha256": "0af7a5c5125504996b9c40d579e313f7855cb47fdde01df20df4091a4312539a",
+      "status": "recovered_added_not_copied"
+    },
+    {
+      "path": "src/prioritization_consolidation.py",
+      "sha256": "ea5584eafa50ffe99911b7fdfac5969eff6c14dbccff1ed15e43c5add376a67b",
+      "status": "recovered_added_not_copied"
+    },
+    {
+      "path": "src/run_batch_02_validation.py",
+      "sha256": "09af30e6b1426df86d242dc3ecd573b2068f921271dea4a7c5fc74967f476a2d",
+      "status": "recovered_added_not_copied"
+    }
+  ],
+  "missing": [
+    {
+      "component": "V1.1 final-synthesis generator",
+      "status": "not_recovered_do_not_invent"
+    }
+  ],
+  "v1_copy_status": "All 25 listed files copied byte-for-byte; zero historical file edits.",
+  "adaptations": [
+    "V2 runtime: isolated temporary filesystem root and a fresh subprocess per run; original relative path layout retained.",
+    "V2 input boundary: approved synthetic manifest IDs and content hashes only; OCR-required PDF inputs rejected.",
+    "V2 API: synchronous output serialization, bounded requests and execution, generic public errors, no durable run storage.",
+    "V2 presentation: generated fields and Markdown reports, exact-link source inspection, explicit historical limitation warnings.",
+    "V2 integrity metadata: engine/source/result SHA-256 is newly introduced and is not historical provenance."
+  ],
+  "v11_execution": "not_integrated; original private modules withheld pending safe adaptation"
+}

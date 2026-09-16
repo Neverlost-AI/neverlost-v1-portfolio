@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": ["event_id", "event_type", "event_summary", "source_document", "source_page_or_chunk"],
+  "properties": {
+    "event_id": { "type": "string" },
+    "date": { "type": ["string", "null"] },
+    "approximate_date": { "type": ["string", "null"] },
+    "source_document": { "type": "string" },
+    "source_page_or_chunk": { "type": "string" },
+    "event_type": { "type": "string" },
+    "event_summary": { "type": "string" },
+    "source_evidence": { "type": "string" },
+    "patient_observation": { "type": "string" },
+    "ai_inference": { "type": "string" },
+    "confidence_level": { "type": "string" },
+    "related_conditions": { "type": "array" },
+    "related_providers": { "type": "array" },
+    "related_body_systems": { "type": "array" },
+    "functional_relevance": { "type": "string" },
+    "documentation_relevance": { "type": "string" }
+  }
+}
+

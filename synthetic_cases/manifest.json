@@ -1,0 +1,86 @@
+{
+  "format_version": 1,
+  "cases": [
+    {
+      "case_id": "case_001",
+      "title": "Coordination and therapy",
+      "description": "Invented Markdown and text-bearing PDF inputs.",
+      "documents": [
+        {
+          "document_id": "SYNTH-1-1",
+          "filename": "coordination.md",
+          "synthetic": true,
+          "source_type": "invented_training_note",
+          "expected_page_count": 1,
+          "description": "Independently invented V2 execution test source; no real record.",
+          "fixture_version": "1",
+          "sha256": "b3697f746b59de4954271219747aa1d29813255392b8244209c6243ee74ddea7"
+        },
+        {
+          "document_id": "SYNTH-1-2",
+          "filename": "physical_therapy.pdf",
+          "synthetic": true,
+          "source_type": "invented_therapy_note",
+          "expected_page_count": 1,
+          "description": "Independently invented V2 execution test source; no real record.",
+          "fixture_version": "1",
+          "sha256": "cd3afc122cfb4c0e09bcd96288ba0296e1050e586a709913b5a1d101b2291780"
+        }
+      ]
+    },
+    {
+      "case_id": "case_002",
+      "title": "Additional follow-up observation",
+      "description": "Modified functional observations, an added therapy follow-up, and the shared text-bearing PDF.",
+      "documents": [
+        {
+          "document_id": "SYNTH-2-1",
+          "filename": "coordination.md",
+          "synthetic": true,
+          "source_type": "invented_training_note",
+          "expected_page_count": 1,
+          "description": "Independently invented V2 execution test source; no real record.",
+          "fixture_version": "1",
+          "sha256": "f3684020af9a0b0ed50b80ba3c0e7c5f27876c45d500bb0b5f70c781da6e2680"
+        },
+        {
+          "document_id": "SYNTH-2-2",
+          "filename": "physical_therapy.pdf",
+          "synthetic": true,
+          "source_type": "invented_therapy_note",
+          "expected_page_count": 1,
+          "description": "Independently invented V2 execution test source; no real record.",
+          "fixture_version": "1",
+          "sha256": "cd3afc122cfb4c0e09bcd96288ba0296e1050e586a709913b5a1d101b2291780"
+        },
+        {
+          "document_id": "SYNTH-2-3",
+          "filename": "therapy_followup.txt",
+          "synthetic": true,
+          "source_type": "invented_therapy_note",
+          "expected_page_count": 1,
+          "description": "Invented therapy-focused note exercising the historical event-type gate.",
+          "fixture_version": "1",
+          "sha256": "7efde6ea1a9475e27cd96aec0379a5e395930a7d7217d7cc455dae58215830ae"
+        }
+      ]
+    },
+    {
+      "case_id": "case_003",
+      "title": "Negation limitation",
+      "description": "Invented 'not approved' wording tests historical keyword limitations.",
+      "documents": [
+        {
+          "document_id": "SYNTH-3-1",
+          "filename": "negation.txt",
+          "synthetic": true,
+          "source_type": "invented_training_note",
+          "expected_page_count": 1,
+          "description": "Independently invented V2 execution test source; no real record.",
+          "fixture_version": "1",
+          "sha256": "82bc0eb8ffb046a50f98f3b336ae3b12295a0421544be3902aeeb4e61b36c23c"
+        }
+      ]
+    }
+  ]
+}

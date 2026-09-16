@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "required": ["provider_involved", "source_event", "source_evidence", "confidence_level"],
+  "properties": {
+    "provider_involved": { "type": "string" },
+    "source_event": { "type": "string" },
+    "evidence_that_increased_trust": { "type": "string" },
+    "action_that_became_possible": { "type": "string" },
+    "documentation_created": { "type": "string" },
+    "downstream_pathway_opened": { "type": "string" },
+    "source_evidence": { "type": "string" },
+    "confidence_level": { "type": "string" }
+  }
+}
+

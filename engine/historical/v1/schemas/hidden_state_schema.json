@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "required": ["source_event", "possible_hidden_state_change", "why_it_matters", "source_evidence", "confidence_level"],
+  "properties": {
+    "source_event": { "type": "string" },
+    "possible_hidden_state_change": { "type": "string" },
+    "why_it_matters": { "type": "string" },
+    "downstream_opportunity": { "type": "string" },
+    "source_evidence": { "type": "string" },
+    "confidence_level": { "type": "string", "enum": ["high", "medium", "low", "unknown"] }
+  }
+}
