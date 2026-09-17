@@ -42,7 +42,7 @@ for (const [route, title] of [["timeline", "Timeline"], ["evidence-matrix", "Evi
     await page.screenshot({ path: testInfo.outputPath(route + "-" + testInfo.project.name + ".png"), fullPage: true });
     if (testInfo.project.name === "mobile") await page.locator(".mobile-navigation > summary").click();
     await nav.getByRole("link", { name: "Overview", exact: true }).click();
-    await expect(page).toHaveURL("/");
+    await expect(page).toHaveURL("/v1");
     await expect(page.getByRole("heading", { name: "From scattered records to a clearer picture." })).toBeVisible();
     expect(errors).toEqual([]);
     expect(external).toEqual([]);

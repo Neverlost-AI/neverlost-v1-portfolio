@@ -2,7 +2,7 @@ import {test,expect} from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import {DISCLAIMER} from "../src/lib/demo-data";
 
-const routes=["/","/timeline","/evidence-matrix","/hidden-states","/bottlenecks","/capacity-windows","/reports","/v1-1","/v1-1/run-review","/v1-1/prioritized-evidence","/v1-1/capacity-themes","/v1-1/denials-bottlenecks","/v1-1/final-review"];
+const routes=["/v1","/timeline","/evidence-matrix","/hidden-states","/bottlenecks","/capacity-windows","/reports","/v1-1","/v1-1/run-review","/v1-1/prioritized-evidence","/v1-1/capacity-themes","/v1-1/denials-bottlenecks","/v1-1/final-review"];
 
 test("deployment: all public routes support direct entry, refresh and local assets",async({page},info)=>{
   test.setTimeout(180000);

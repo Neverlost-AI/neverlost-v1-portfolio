@@ -22,7 +22,7 @@ function Wordmark() {
 function Navigation({ view }: { view: "Overview" | ConceptName | OutputName }) {
   return <nav aria-label="Demo views">
     {navigation.map((item) => item.available
-      ? <Link key={item.label} className={`nav-item${view === item.label ? " active" : ""}`} href={item.label === "Overview" ? "/" : `/${item.label.toLowerCase().replaceAll(" ", "-")}`} aria-current={view === item.label ? "page" : undefined}><Icon name={item.icon} /><span>{item.label}</span>{view === item.label && <span className="active-mark" />}</Link>
+      ? <Link key={item.label} className={`nav-item${view === item.label ? " active" : ""}`} href={item.label === "Overview" ? "/v1" : `/${item.label.toLowerCase().replaceAll(" ", "-")}`} aria-current={view === item.label ? "page" : undefined}><Icon name={item.icon} /><span>{item.label}</span>{view === item.label && <span className="active-mark" />}</Link>
       : <button key={item.label} className="nav-item" disabled title={`${item.label} view is not built in this milestone`}><Icon name={item.icon} /><span>{item.label}</span><span className="nav-planned">Later</span></button>)}
   </nav>;
 }
@@ -55,7 +55,7 @@ export function Overview({ view = "Overview" }: { view?: "Overview" | ConceptNam
   return <div className="app-shell">
     <a className="skip-link" href="#main-content">Skip to content</a>
     <aside className="sidebar">
-      <Link className="brand-link" href="/" aria-label="Neverlost demo overview"><Wordmark /></Link>
+      <Link className="brand-link" href="/v1" aria-label="Neverlost demo overview"><Wordmark /></Link>
       <div className="workspace-label"><span className="version-square">V1</span><div>Healthcare Roadmap<small>Historical prototype</small></div></div>
       <p className="nav-heading">WORKSPACE</p>
       <Navigation view={view} />

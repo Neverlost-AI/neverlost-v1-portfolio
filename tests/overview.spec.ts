@@ -9,7 +9,7 @@ test("Overview is responsive, honest about scope, and accessible", async ({ page
   page.on("request", (request) => {
     if (!new URL(request.url()).hostname.match(/^(127\.0\.0\.1|localhost)$/)) externalRequests.push(request.url());
   });
-  await page.goto("/");
+  await page.goto("/v1");
   await expect(page.getByRole("heading", { name: "Overview." })).toBeVisible();
   await expect(page.getByText(DISCLAIMER, { exact: true }).first()).toBeVisible();
   await expect(page.getByText("Presentation only. No records are processed.")).toBeVisible();
@@ -30,7 +30,7 @@ test("Overview is responsive, honest about scope, and accessible", async ({ page
 });
 
 test("evidence filters and complete provenance inspection work", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/v1");
   await page.getByRole("button", { name: "Interpretation", exact: true }).click();
   await expect(page.getByText("2 of 4 entries", { exact: true })).toBeVisible();
   await expect(page.getByRole("table").getByRole("row")).toHaveCount(3);
@@ -57,7 +57,7 @@ test("evidence filters and complete provenance inspection work", async ({ page }
 });
 
 test("about dialog and overview source previews behave correctly", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/v1");
   await page.getByRole("button", { name: "About this demo" }).click();
   await expect(page.getByRole("dialog")).toContainText("No LLM execution, autonomous agents, durable state, or clinical validation.");
   await page.getByRole("button", { name: "Close dialog" }).click();

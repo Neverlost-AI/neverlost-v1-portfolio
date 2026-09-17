@@ -74,19 +74,19 @@ export function V2Workspace({ view }: { view: string }) {
   return <div className={styles.shell}>
     <a className="skip-link" href="#v2-main">Skip to results</a>
     <header className={styles.header}>
-      <Link href="/v2" className={styles.brand}><Image src={logo} alt="NVLT" width={48} height={48} /><span>Neverlost Systems<small>V2 Live App · Execution sandbox</small></span></Link>
-      <nav aria-label="Historical versions"><Link href="/">Historical V1</Link><Link href="/v1-1">V1.1 reconstruction</Link></nav>
+      <Link href="/v2" className={styles.brand}><Image src={logo} alt="NVLT" width={48} height={48} /><span>Neverlost V2<small>Neverlost Systems · Longitudinal evidence analysis</small></span></Link>
     </header>
     <div className={styles.frame}>
       <nav className={styles.navigation} aria-label="V2 results">
         {surfaces.map(([key, label]) => <Link key={key} href={"/v2/" + key} aria-current={view === key ? "page" : undefined}>{label}</Link>)}
-        <span>V1.1 live processing · Recovered Python</span>
+        <span>Source-linked analysis · Human review required</span>
       </nav>
       <main id="v2-main" className={styles.main}>
-        <p className={styles.kicker}>ACTUAL PYTHON EXECUTION / CURATED SYNTHETIC INPUTS</p>
+        <p className={styles.kicker}>LIVE EVIDENCE ANALYSIS / CURATED SYNTHETIC CASES</p>
         <h1>{current[1]}</h1>
-        <p className={styles.notice}>Historical June 2026 prototype · Synthetic demonstration data · Not a clinical decision system · Human review required.</p>
-        <p>New V2 runtime around preserved V1 Python. Results are generated on request, not loaded from the historical portfolio fixtures. No Case Navigator state or human acceptance workflow.</p>
+        <p className={styles.notice}>Synthetic demonstration data · Not a clinical decision system · Human review required.</p>
+        <p>Neverlost V2 analyzes records over time to produce source-linked timelines, evidence, bottleneck candidates, capacity windows, and reports. Live processing adds evidence prioritization, deterministic validation, and review tools. Explore a curated synthetic case, inspect its sources, and review the generated outputs.</p>
+        <p className={styles.notice}>Engine provenance: preserved June 2026 V1 Python and recovered V1.1 processing. Results are generated on request; historical rules and limitations remain in effect.</p>
         <aside className={styles.warning}><strong>Historical limitations remain active.</strong> Keyword matching can misread negation, including “not approved.” Candidate names and report prose are historical output—not verified conclusions. V1.1 final-synthesis generation remains unestablished.</aside>
         {error && <p role="alert" className={styles.warning}>{error}</p>}
         {view === "run" && <section className={styles.panel} aria-labelledby="case-heading">
@@ -95,14 +95,14 @@ export function V2Workspace({ view }: { view: string }) {
           <select id="case-select" value={caseId} disabled={busy || !cases.length} onChange={(event) => { setCaseId(event.target.value); setRun(null); }}>
             {cases.map((item) => <option key={item.case_id} value={item.case_id}>{item.title}</option>)}
           </select>
-          <p>{selected?.description ?? "Loading manifest from the Python service…"}</p>
+          <p>{selected?.description ?? "Loading synthetic cases…"}</p>
           <details open><summary>Source manifest · {selected?.documents.length ?? 0} documents</summary>
             {selected?.documents.map((source) => <div key={source.document_id} className={styles.source}>
               <strong>{source.filename}</strong><p>{source.document_id} · {source.source_type} · Synthetic · Version {source.fixture_version} · {source.expected_page_count} page/text record</p>
               <p>{source.description}</p><code>SHA-256 {source.sha256}</code>
             </div>)}
           </details>
-          <button className={styles.primary} disabled={busy || !selected} onClick={analyze}>{busy ? "Running historical Python…" : "Run Neverlost Analysis"}</button>
+          <button className={styles.primary} disabled={busy || !selected} onClick={analyze}>{busy ? "Running analysis…" : "Run Neverlost Analysis"}</button>
           <p role="status">{busy ? "Executing in an isolated temporary workspace. Please wait." : run ? "Analysis complete. Generated results are available." : "No analysis has run. Arbitrary uploads are unavailable."}</p>
         </section>}
         {!run && view !== "run" && <section className={styles.panel}><h2>No live run in this browser session</h2><p>Run a curated case to see actual output. Refresh discards ephemeral results; it does not recover a saved case.</p><Link href="/v2/run">Choose a synthetic case</Link></section>}
@@ -119,7 +119,7 @@ export function V2Workspace({ view }: { view: string }) {
           </section>
           {view === "run" && <section className={styles.panel}><h2>Generated outputs</h2><p>Use the navigation to inspect this run’s timeline, evidence, candidates and generated reports.</p><Link href="/v2/timeline">Inspect generated timeline →</Link></section>}
           {current[2] && <section aria-label={current[1] + " results"}>
-            <h2>{rows.length} historical {rows.length === 1 ? "output" : "outputs"}</h2>
+            <h2>{rows.length} generated {rows.length === 1 ? "output" : "outputs"}</h2>
             {!rows.length && <p className={styles.panel}>The historical engine produced no rows for this surface. No substitute candidates have been invented.</p>}
             {rows.map((row, index) => {
               const reference = sourceFor(row, run);
