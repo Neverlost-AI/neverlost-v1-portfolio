@@ -81,6 +81,73 @@
           "sha256": "82bc0eb8ffb046a50f98f3b336ae3b12295a0421544be3902aeeb4e61b36c23c"
         }
       ]
+    },
+    {
+      "case_id": "case_004",
+      "title": "Source authority and overlapping evidence",
+      "description": "Six independently synthetic sources for live V1 to recovered V1.1 integration.",
+      "documents": [
+        {
+          "document_id": "SYNTH-4-1",
+          "filename": "ambiguous note.txt",
+          "sha256": "e0d63d7f61c93ac4d46d9a297978192ea29110b50cd6ecae206413d6de37e93b",
+          "synthetic": true,
+          "source_type": "invented_integration_note",
+          "expected_page_count": 1,
+          "description": "Independently invented integration source; no real record.",
+          "fixture_version": "1"
+        },
+        {
+          "document_id": "SYNTH-4-2",
+          "filename": "function report.txt",
+          "sha256": "4b452cb14605c778f1bc27c53a3177f03a5d81b84700a657e65d0447f0cf1eaf",
+          "synthetic": true,
+          "source_type": "invented_integration_note",
+          "expected_page_count": 1,
+          "description": "Independently invented integration source; no real record.",
+          "fixture_version": "1"
+        },
+        {
+          "document_id": "SYNTH-4-3",
+          "filename": "health record.txt",
+          "sha256": "6be3c903ca301c7d1929ee149c477164ee2e1d37af43d862cc7c0344aacb1169",
+          "synthetic": true,
+          "source_type": "invented_integration_note",
+          "expected_page_count": 1,
+          "description": "Independently invented integration source; no real record.",
+          "fixture_version": "1"
+        },
+        {
+          "document_id": "SYNTH-4-4",
+          "filename": "insurance denial.txt",
+          "sha256": "a1a299a50fc66f11339c33276bf4ed3e160017c6839f8ad7100c4a1ed40f153c",
+          "synthetic": true,
+          "source_type": "invented_integration_note",
+          "expected_page_count": 1,
+          "description": "Independently invented integration source; no real record.",
+          "fixture_version": "1"
+        },
+        {
+          "document_id": "SYNTH-4-5",
+          "filename": "occupational therapy.txt",
+          "sha256": "d490a1b4fc4344f2fd4984eeb774d49c2ef1340559fbc1bf7dda158ba1291dab",
+          "synthetic": true,
+          "source_type": "invented_integration_note",
+          "expected_page_count": 1,
+          "description": "Independently invented integration source; no real record.",
+          "fixture_version": "1"
+        },
+        {
+          "document_id": "SYNTH-4-6",
+          "filename": "physical therapy.txt",
+          "sha256": "a88dc6c6f06664641b6d5e1274c0669673ec7c7c12b14e46979d429ad467dabc",
+          "synthetic": true,
+          "source_type": "invented_integration_note",
+          "expected_page_count": 1,
+          "description": "Independently invented integration source; no real record.",
+          "fixture_version": "1"
+        }
+      ]
     }
   ]
 }

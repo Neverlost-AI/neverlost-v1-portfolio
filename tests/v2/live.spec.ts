@@ -13,7 +13,8 @@ test("real Python run, every output surface, provenance and refresh boundary", a
   const response = await responsePromise;
   expect(response.status()).toBe(200);
   const output = await response.json();
-  expect(output.engine.v1_1).toBe("not_integrated");
+  expect(output.engine.v1_1).toBe(output.v1_1.engine_identity);
+  expect(output.v1_1.upstream_v1_sha256).toBe(output.result_sha256);
   expect(output.counts.capacity_windows).toBeGreaterThan(0);
   await expect(page.getByText(output.run_id, { exact: true })).toBeVisible();
   for (const [label, slug] of [

@@ -23,6 +23,8 @@ class RuntimeTests(unittest.TestCase):
         self.assertEqual(captured[0]["PYTHONPATH"], adapter.dependency_path())
         self.assertNotIn("untrusted-parent-path", captured[0]["PYTHONPATH"])
         self.assertNotIn("PRIVATE_TOKEN", captured[0])
+        self.assertEqual(len(captured), 2)
+        self.assertEqual(captured[0], captured[1])
 
     def test_25_frozen_hashes(self):
         manifest = json.loads(adapter.RECOVERY.read_text())
@@ -54,6 +56,9 @@ class RuntimeTests(unittest.TestCase):
         repeat = adapter.execute("case_001")
         self.assertNotEqual(first["run_id"], repeat["run_id"])
         self.assertEqual(first["result_sha256"], repeat["result_sha256"])
+        self.assertEqual(first["v1_1"]["result_sha256"], repeat["v1_1"]["result_sha256"])
+        self.assertFalse(second["v1_1"]["actual_denial_source_present"])
+        self.assertNotIn("negation.txt", str(first["v1_1"]["evidence_matrix"]))
         self.assertNotIn("negation.txt", {s["filename"] for s in first["sources"]})
         self.assertEqual(second["counts"]["documents"], 1)
 
@@ -67,7 +72,7 @@ class RuntimeTests(unittest.TestCase):
         self.assertNotEqual(first["artifacts"]["evidence_matrix"], second["artifacts"]["evidence_matrix"])
 
     def test_reject_unknown_case(self):
-        for value in ["../../private", "", "case_004"]:
+        for value in ["../../private", "", "case_005"]:
             with self.assertRaises(adapter.InputRejected):
                 adapter.execute(value)
 

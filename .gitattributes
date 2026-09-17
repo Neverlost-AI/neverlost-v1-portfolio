@@ -1,3 +1,4 @@
 # Historical files are evidence: never normalize their bytes on checkout.
 engine/historical/** -text
+engine/v11-custody.json -text
 synthetic_cases/** -text

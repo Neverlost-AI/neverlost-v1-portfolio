@@ -1,0 +1,42 @@
+{
+  "format_version": 1,
+  "source_root": "recovered-active-v1.1",
+  "adaptation_id": "v2-m2-publication-1",
+  "deviations_document": "docs/v2-m2-integration.md",
+  "files": [
+    {
+      "path": "src/build_evidence_matrix.py",
+      "original_sha256": "3fb6358454e27490f30ed5313996fd07be0d9b091bd7ea442dcef11fa496947c",
+      "adapted_sha256": "ba33d386c90b8d6aa81cea29d1b396809dccdb3321e3ccdd994d6fcb8d960cd3",
+      "deviations": [
+        "privacy: remove person/institution aliases",
+        "privacy: remove entity payer name lookup",
+        "privacy: remove named-practice PT domain exemption"
+      ]
+    },
+    {
+      "path": "src/detect_bottlenecks.py",
+      "original_sha256": "877c4d481586b2a765fa723a6a02b3bc5ef2a7fda6e753680a7a27fae3b6f750",
+      "adapted_sha256": "877c4d481586b2a765fa723a6a02b3bc5ef2a7fda6e753680a7a27fae3b6f750",
+      "deviations": []
+    },
+    {
+      "path": "src/generate_reports.py",
+      "original_sha256": "8291501f8ceb3e763293f6509cef975395dc83f9cff7b9c4030b491aa22e70e8",
+      "adapted_sha256": "8291501f8ceb3e763293f6509cef975395dc83f9cff7b9c4030b491aa22e70e8",
+      "deviations": []
+    },
+    {
+      "path": "src/light_agentic_review.py",
+      "original_sha256": "0af7a5c5125504996b9c40d579e313f7855cb47fdde01df20df4091a4312539a",
+      "adapted_sha256": "0af7a5c5125504996b9c40d579e313f7855cb47fdde01df20df4091a4312539a",
+      "deviations": []
+    },
+    {
+      "path": "src/prioritization_consolidation.py",
+      "original_sha256": "ea5584eafa50ffe99911b7fdfac5969eff6c14dbccff1ed15e43c5add376a67b",
+      "adapted_sha256": "ea5584eafa50ffe99911b7fdfac5969eff6c14dbccff1ed15e43c5add376a67b",
+      "deviations": []
+    }
+  ]
+}

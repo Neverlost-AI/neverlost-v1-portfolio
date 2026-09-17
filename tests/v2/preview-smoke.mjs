@@ -4,6 +4,8 @@ import AxeBuilder from "@axe-core/playwright";
 import { mkdir, readFile } from "node:fs/promises";
 
 const base = process.argv[2];
+const caseId = process.argv[3] ?? "case_004";
+if (!["case_002", "case_004"].includes(caseId)) throw new Error("Choose case_002 or case_004 for browser smoke checks.");
 if (!base || !/^https?:\/\//.test(base)) throw new Error("Supply the preview or local base URL.");
 await mkdir("test-results/v2-preview", { recursive: true });
 const browser = await chromium.launch();
@@ -24,7 +26,7 @@ try {
     page.on("pageerror", (error) => errors.push(error.message));
     const response = await page.goto(base + "/v2");
     if (response.status() !== 200) throw new Error("V2 entry did not return 200.");
-    await page.getByLabel("Synthetic case", { exact: true }).selectOption("case_002", { timeout: 30_000 });
+    await page.getByLabel("Synthetic case", { exact: true }).selectOption(caseId, { timeout: 30_000 });
     const finished = page.waitForResponse((r) => r.url().includes("/api/v2/run"), { timeout: 60_000 });
     await page.getByRole("button", { name: "Run Neverlost Analysis" }).click();
     const result = await finished;
@@ -32,7 +34,8 @@ try {
     const run = await result.json();
     await page.getByText(run.run_id, { exact: true }).waitFor();
     await page.screenshot({ path: "test-results/v2-preview/" + name + ".png", fullPage: true });
-    for (const label of ["Timeline", "Evidence", "Hidden States", "Trust Thresholds", "Bottlenecks", "Capacity Windows", "Reports"]) {
+    if (!run.v1_1 || run.v1_1.upstream_v1_sha256 !== run.result_sha256) throw new Error("Missing live V1.1 handoff");
+    for (const label of ["Timeline", "Evidence", "Hidden States", "Trust Thresholds", "Bottlenecks", "Capacity Windows", "Reports", "Source Authority / Evidence", "Run Review", "Prioritized Evidence", "Capacity Themes", "Denials & Bottlenecks", "Final Review / Reports"]) {
       await page.getByRole("navigation", { name: "V2 results" }).getByRole("link", { name: label, exact: true }).click();
       await page.getByRole("heading", { level: 1, name: label }).waitFor();
       await page.getByText(run.run_id, { exact: true }).waitFor();
@@ -40,13 +43,18 @@ try {
       if (axe.violations.length) throw new Error(label + ": " + JSON.stringify(axe.violations));
       if (await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error("Horizontal overflow");
     }
-    await page.getByRole("button", { name: "Inspect source · physical_therapy.pdf", exact: true }).click();
-    await page.getByRole("dialog").getByRole("heading", { name: "Page 1" }).waitFor();
+    const filename = caseId === "case_002" ? "physical_therapy.pdf" : "health record.txt";
+    const source = page.getByRole("button", { name: "Inspect source · " + filename, exact: true });
+    await source.focus();
+    await page.keyboard.press("Enter");
+    await page.getByRole("dialog").getByRole("heading", { name: caseId === "case_002" ? "Page 1" : "Text record · page not supplied" }).waitFor();
+    const sourceAxe = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
+    if (sourceAxe.violations.length) throw new Error("Source dialog accessibility violation");
     await page.keyboard.press("Escape");
     await page.reload();
     await page.getByRole("heading", { name: "No live run in this browser session" }).waitFor();
     if (errors.length) throw new Error(errors.join("\n"));
-    console.log(JSON.stringify({ viewport: name, status: "passed", case_id: run.case_id, result_sha256: run.result_sha256, counts: run.counts }));
+    console.log(JSON.stringify({ viewport: name, status: "passed", case_id: run.case_id, result_sha256: run.result_sha256, v11_sha256: run.v1_1.result_sha256, counts: run.counts }));
     await context.close();
   }
 } finally {

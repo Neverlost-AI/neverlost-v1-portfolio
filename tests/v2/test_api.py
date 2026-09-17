@@ -11,7 +11,7 @@ class ApiTests(unittest.TestCase):
     def test_cases_and_no_store(self):
         response = self.client.get("/api/v2/cases")
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(len(response.json()["cases"]), 3)
+        self.assertEqual(len(response.json()["cases"]), 4)
         self.assertEqual(response.headers["cache-control"], "no-store")
         self.assertEqual(self.client.get("/api/v2/cases/unknown").status_code, 404)
 

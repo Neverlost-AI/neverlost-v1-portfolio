@@ -5,6 +5,7 @@ import Image from "next/image";
 import logo from "@/components/v11/nvlt-official-logo.svg";
 import { surfaces, type Json, type Row, type Run, type Source, type SyntheticCase } from "@/lib/v2/contracts";
 import { useRun } from "./run-context";
+import { LiveV11 } from "./live-v11";
 import styles from "./workspace.module.css";
 
 function valueText(value: Json): string {
@@ -79,7 +80,7 @@ export function V2Workspace({ view }: { view: string }) {
     <div className={styles.frame}>
       <nav className={styles.navigation} aria-label="V2 results">
         {surfaces.map(([key, label]) => <Link key={key} href={"/v2/" + key} aria-current={view === key ? "page" : undefined}>{label}</Link>)}
-        <span>V1.1 live processing · Not integrated</span>
+        <span>V1.1 live processing · Recovered Python</span>
       </nav>
       <main id="v2-main" className={styles.main}>
         <p className={styles.kicker}>ACTUAL PYTHON EXECUTION / CURATED SYNTHETIC INPUTS</p>
@@ -111,7 +112,7 @@ export function V2Workspace({ view }: { view: string }) {
               <dt>Run ID</dt><dd>{run.run_id}</dd><dt>Synthetic case</dt><dd>{run.case_id}</dd>
               <dt>Execution</dt><dd>Completed · Real Python V1</dd><dt>Started</dt><dd>{run.started}</dd>
               <dt>Completed</dt><dd>{run.completed}</dd><dt>Engine SHA-256</dt><dd>{run.engine.v1}</dd>
-              <dt>Result SHA-256</dt><dd>{run.result_sha256}</dd><dt>V1.1</dt><dd>Not integrated</dd>
+              <dt>Result SHA-256</dt><dd>{run.result_sha256}</dd><dt>V1.1</dt><dd>{run.v1_1 ? "Recovered Python · Live second stage" : "Not integrated"}</dd>
             </dl>
             <div className={styles.metrics}>{Object.entries(run.counts).map(([key, count]) => <div key={key}><strong>{count}</strong><span>{key.replaceAll("_", " ")}</span></div>)}</div>
             <details><summary>Execution warnings and provenance limits</summary><ul>{run.warnings.map((warning) => <li key={warning}>{warning}</li>)}</ul></details>
@@ -138,6 +139,7 @@ export function V2Workspace({ view }: { view: string }) {
             <p>These are the actual ordinary V1 report-generator outputs, not a recovered V1.1 final-synthesis packet. Historical template prose is preserved and may exceed what this input establishes.</p>
             {Object.entries(run.reports).map(([name, content]) => <details key={name} className={styles.panel}><summary>{name}</summary><pre className={styles.report}>{content}</pre></details>)}
           </section>}
+          <LiveV11 run={run} view={view} inspect={inspect} />
           <section className={styles.panel}><h2>Synthetic source library</h2><p>Original extracted text for this run. A text file has no historical page number; PDFs retain page numbers.</p>
             {run.sources.map((source) => <button key={source.document_id} className={styles.secondary} onClick={() => inspect(source)}>Inspect source · {source.filename}</button>)}
           </section>

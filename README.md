@@ -1,5 +1,19 @@
 # Neverlost V1 — portfolio presentation
 
+## V2 live execution (separate from the historical portfolio)
+
+The historical portfolio descriptions below apply to `/` and `/v1-1`, not
+the new `/v2` execution sandbox. V2 executes the 25 byte-preserved V1 files
+against approved synthetic sources, then processes the actual result with a
+publication-safe derivative of recovered V1.1 Python. Cases 001–003 remain V1
+regressions; Case 004 exercises six source-authority classes. No arbitrary
+uploads, durable storage, LLM execution, or final-synthesis generator exists.
+
+See [M2 custody, adaptations and verification](docs/v2-m2-integration.md).
+The original `engine/recovery-manifest.json` records the M1 recovery state;
+`engine/v11-custody.json` is the additive M2 derivative custody record.
+The historical routes and their TypeScript reconstructions remain unchanged.
+
 A new, standalone Next.js + TypeScript interface built in September 2026. **This is not the historical June 2026 Python implementation.** No historical code, records, examples, generated reports, or private census files are imported or copied into this project.
 
 > Historical June 2026 prototype · Synthetic demonstration data · Not a clinical decision system · Human review required.

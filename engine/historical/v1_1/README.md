@@ -1,5 +1,5 @@
-# Recovered V1.1 — not yet imported
+# Recovered V1.1 — publication-safe M2 derivative
 
-The active local workspace was located and compared by SHA-256. The three modified and three added modules are recorded in `../../recovery-manifest.json`. Identifying constants and batch-specific source assumptions prevent an unreviewed byte-for-byte import. No private module, input, configuration, or output is included here.
+The active local workspace was located and compared by SHA-256. The M1 discovery record remains in `../../recovery-manifest.json`. M2 packages five analytical/reporting modules in `src/`, with original and adapted hashes in `../../v11-custody.json`. Four are byte-identical to the recovered files; evidence classification removes publication-sensitive entity aliases, documented in `../../../docs/v2-m2-integration.md`.
 
-The ordinary V1 engine is executed first. V1.1 integration is a subsequent gate. The historical final-synthesis generator remains unrecovered. This directory does not imply executable V1.1 availability.
+The ordinary V1 engine executes first. A new V2 adapter copies its generated state into a second isolated stage before cleanup. The historical batch runner, private profiles, source records and private outputs are not included. The historical final-synthesis generator remains unrecovered. File comparison establishes a direct extension, not authenticated historical Git ancestry.
